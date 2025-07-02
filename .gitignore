@@ -1,0 +1,58 @@
+# .gitignore (root level)
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Google Sheets credentials
+credentials/*.json
+!credentials/.gitkeep
+
+# Local data
+local_users.json
+backend-data/
+
+# Misc
+.eslintcache
+.npm
+.yarn-integrity
