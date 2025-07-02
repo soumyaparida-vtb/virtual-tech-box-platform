@@ -1,0 +1,59 @@
+<!-- public/favicon.ico -->
+<!-- 
+  FAVICON INSTRUCTIONS:
+  
+  Since I cannot create binary files, you'll need to create or download a favicon.ico file.
+  
+  Options:
+  1. Use a favicon generator: https://favicon.io/
+  2. Use your logo and convert it to .ico format
+  3. Use a placeholder favicon for now
+  
+  The favicon.ico file should be placed in the public/ directory
+  
+  Recommended sizes to include in the .ico file:
+  - 16x16
+  - 32x32
+  - 48x48
+  
+  You can also add additional icon formats for better support:
+-->
+
+<!-- Add these lines to your index.html <head> section for complete favicon support: -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- site.webmanifest (create this file in public/ directory) -->
+{
+  "name": "Virtual Tech Box",
+  "short_name": "VTB",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2f447a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
+
+<!-- 
+  TEMPORARY SOLUTION:
+  For now, you can create a simple SVG favicon and save it as favicon.svg in the public folder:
+-->
+<!-- public/favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#2f447a"/>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">VTB</text>
+</svg>
