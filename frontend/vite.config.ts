@@ -21,6 +21,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: true, // Allow external connections
     proxy: {
       '/api': {
         target: 'http://localhost:8000',
@@ -30,13 +31,22 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
+    sourcemap: false, // Disable sourcemaps for production
+    minify: 'esbuild', // Use esbuild for faster builds
+    target: 'es2015',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          vendor: ['axios', 'react-hook-form', 'react-hot-toast'],
+          ui: ['framer-motion', 'react-icons'],
+          markdown: ['react-markdown', 'react-syntax-highlighter'],
+        },
       },
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
 })

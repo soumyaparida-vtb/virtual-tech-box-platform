@@ -1,7 +1,6 @@
 // components/learning/LearningAreaCard.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { FiClock, FiBookOpen, FiArrowRight } from 'react-icons/fi';
 import { LearningAreaInfo } from '../../types/learning';
 import Card from '../ui/Card';
@@ -11,7 +10,7 @@ interface LearningAreaCardProps {
 }
 
 const LearningAreaCard: React.FC<LearningAreaCardProps> = ({ area }) => {
-  const colorClasses = {
+  const colorClasses: Record<string, string> = {
     'vtb-accent-blue': 'bg-vtb-accent-blue',
     'vtb-dark-green': 'bg-vtb-dark-green',
     'vtb-accent-orange': 'bg-vtb-accent-orange',
@@ -22,7 +21,7 @@ const LearningAreaCard: React.FC<LearningAreaCardProps> = ({ area }) => {
   return (
     <Link to={`/learning/${area.id}`}>
       <Card hover className="h-full relative overflow-hidden group">
-        <div className={`absolute top-0 left-0 right-0 h-1 ${colorClasses[area.color as keyof typeof colorClasses]}`} />
+        <div className={`absolute top-0 left-0 right-0 h-1 ${colorClasses[area.color]}`} />
         
         <div className="flex items-start justify-between mb-4">
           <div className="text-4xl">{area.icon}</div>

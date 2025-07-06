@@ -18,7 +18,6 @@ interface ModuleContentProps {
 const ModuleContent: React.FC<ModuleContentProps> = ({
   module,
   onComplete,
-  isCompleted,
 }) => {
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
@@ -111,16 +110,13 @@ const ModuleContent: React.FC<ModuleContentProps> = ({
               <div className="prose prose-lg max-w-none">
                 <ReactMarkdown
                   components={{
-                    code({ node, className, children, ...props }) {
+                    code({ className, children, ...props }) {
                       const match = /language-(\w+)/.exec(className || '');
-                      // Access inline via props.inline
-                      const isInline = (props as any).inline;
-                      return !isInline && match ? (
+                      return match ? (
                         <SyntaxHighlighter
                           style={atomDark as any}
                           language={match[1]}
-                          {...props}
-                          ref={null}
+                          PreTag="div"
                         >
                           {String(children).replace(/\n$/, '')}
                         </SyntaxHighlighter>
@@ -152,6 +148,7 @@ const ModuleContent: React.FC<ModuleContentProps> = ({
                     <SyntaxHighlighter
                       style={atomDark}
                       language={example.language}
+                      PreTag="div"
                     >
                       {example.code}
                     </SyntaxHighlighter>

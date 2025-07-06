@@ -4,15 +4,13 @@ import { motion } from 'framer-motion';
 import { FiPlay, FiRotateCw, FiCheck, FiX } from 'react-icons/fi';
 import { Lesson } from '../../types/learning';
 import Button from '../ui/Button';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface InteractiveLessonProps {
   lesson: Lesson;
 }
 
 const InteractiveLesson: React.FC<InteractiveLessonProps> = ({ lesson }) => {
-  const [code, setCode] = useState(getInitialCode(lesson.id));
+  const [code, setCode] = useState(getInitialCode());
   const [output, setOutput] = useState<string>('');
   const [isRunning, setIsRunning] = useState(false);
   const [testResults, setTestResults] = useState<TestResult[]>([]);
@@ -24,7 +22,7 @@ const InteractiveLesson: React.FC<InteractiveLessonProps> = ({ lesson }) => {
 
     // Simulate code execution
     setTimeout(() => {
-      const results = runTests(code, lesson.id);
+      const results = runTests(code);
       setTestResults(results);
       setOutput(generateOutput(results));
       setIsRunning(false);
@@ -32,7 +30,7 @@ const InteractiveLesson: React.FC<InteractiveLessonProps> = ({ lesson }) => {
   };
 
   const handleReset = () => {
-    setCode(getInitialCode(lesson.id));
+    setCode(getInitialCode());
     setOutput('');
     setTestResults([]);
   };
@@ -43,7 +41,7 @@ const InteractiveLesson: React.FC<InteractiveLessonProps> = ({ lesson }) => {
     <div className="space-y-6">
       <div className="bg-gray-50 p-4 rounded-lg">
         <h3 className="font-semibold text-lg mb-2">Challenge</h3>
-        <p className="text-gray-700">{getChallengeDescription(lesson.id)}</p>
+        <p className="text-gray-700">{getChallengeDescription()}</p>
       </div>
 
       <div>
@@ -158,7 +156,7 @@ const InteractiveLesson: React.FC<InteractiveLessonProps> = ({ lesson }) => {
           Need a hint?
         </summary>
         <div className="mt-3 space-y-2">
-          {getHints(lesson.id).map((hint, index) => (
+          {getHints().map((hint, index) => (
             <p key={index} className="text-gray-700 text-sm">
               💡 {hint}
             </p>
@@ -176,50 +174,21 @@ interface TestResult {
   message: string;
 }
 
-const getInitialCode = (lessonId: string): string => {
-  const codeTemplates: Record<string, string> = {
-    'default': `# Write your solution here
+const getInitialCode = (): string => {
+  return `# Write your solution here
 def solution():
     # Your code goes here
     pass
 
 # Test your solution
-solution()`,
-    'devops': `#!/bin/bash
-# Write your bash script here
-
-echo "Hello, DevOps!"`,
-    'python': `def calculate_sum(numbers):
-    """
-    Calculate the sum of a list of numbers.
-    
-    Args:
-        numbers: List of numbers
-    
-    Returns:
-        The sum of all numbers
-    """
-    # Your implementation here
-    pass
-
-# Test cases
-print(calculate_sum([1, 2, 3, 4, 5]))`,
-  };
-
-  return codeTemplates[lessonId] || codeTemplates['default'];
+solution()`;
 };
 
-const getChallengeDescription = (lessonId: string): string => {
-  const challenges: Record<string, string> = {
-    'default': 'Complete the function to solve the given problem. Make sure all test cases pass!',
-    'devops': 'Write a bash script that automates the deployment process.',
-    'python': 'Implement a function that calculates the sum of a list of numbers.',
-  };
-
-  return challenges[lessonId] || challenges['default'];
+const getChallengeDescription = (): string => {
+  return 'Complete the function to solve the given problem. Make sure all test cases pass!';
 };
 
-const runTests = (code: string, lessonId: string): TestResult[] => {
+const runTests = (code: string): TestResult[] => {
   // Simulate test execution
   const hasCorrectSyntax = !code.includes('pass');
   const hasImplementation = code.length > 100;
@@ -256,7 +225,7 @@ Tests passed: ${passed}/${results.length}
 ${passed === results.length ? '\nAll tests passed! Great job!' : '\nSome tests failed. Keep trying!'}`;
 };
 
-const getHints = (lessonId: string): string[] => {
+const getHints = (): string[] => {
   return [
     'Think about the problem step by step',
     'Consider edge cases in your solution',

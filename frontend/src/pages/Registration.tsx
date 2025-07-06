@@ -2,12 +2,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
 import UserRegistrationForm from '../components/forms/UserRegistrationForm';
 import { UserRegistration } from '../types/user';
 import { useUser } from '../contexts/UserContext';
 import { registerUser } from '../services/api';
+import toast from 'react-hot-toast';
 
 const Registration: React.FC = () => {
   const navigate = useNavigate();
