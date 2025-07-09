@@ -6,6 +6,12 @@ import logging
 from app.api.v1.api import api_router
 from app.core.config import settings
 
+origins = [
+    "http://localhost:3000",  # React/Vue local dev
+    "http://127.0.0.1:3000",
+    # Add your production domain here
+]
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

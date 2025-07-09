@@ -24,8 +24,8 @@ class Settings(BaseSettings):
         raise ValueError(v)
     
     # Google Sheets Configuration
-    GOOGLE_SHEETS_CREDENTIALS_PATH: str = "./credentials/google-sheets-key.json"
-    GOOGLE_SHEETS_SPREADSHEET_ID: str = ""
+    GOOGLE_SHEETS_CREDENTIALS_PATH: str = "./credentials/manifest-module-465318-q0-6ae991e65c49.json"
+    GOOGLE_SHEETS_SPREADSHEET_ID: str = "1LYCHLwG39KUBgMh9fKF4TDXdjQJ01dP4P3LYedybzdQ"
     GOOGLE_SHEETS_SCOPES: List[str] = [
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive.file"

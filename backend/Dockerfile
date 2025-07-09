@@ -21,9 +21,6 @@ COPY ./app ./app
 # Create directories for credentials and content
 RUN mkdir -p credentials content/modules
 
-# Copy content if exists
-COPY ./content ./content || true
-
 # Create non-root user
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
