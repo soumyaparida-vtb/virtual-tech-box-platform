@@ -23,14 +23,18 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
     
-    # Google Sheets Configuration
-    GOOGLE_SHEETS_CREDENTIALS_PATH: str = "./credentials/manifest-module-465318-q0-6ae991e65c49.json"
-    GOOGLE_SHEETS_SPREADSHEET_ID: str = "1LYCHLwG39KUBgMh9fKF4TDXdjQJ01dP4P3LYedybzdQ"
-    GOOGLE_SHEETS_SCOPES: List[str] = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive.file"
-    ]
-    
+    # # Google Sheets Configuration
+    # GOOGLE_SHEETS_CREDENTIALS_PATH: str = "./credentials/manifest-module-465318-q0-6ae991e65c49.json"
+    # GOOGLE_SHEETS_SPREADSHEET_ID: str = "1LYCHLwG39KUBgMh9fKF4TDXdjQJ01dP4P3LYedybzdQ"
+    # GOOGLE_SHEETS_SCOPES: List[str] = [
+    #     "https://www.googleapis.com/auth/spreadsheets",
+    #     "https://www.googleapis.com/auth/drive.file"
+    # ]
+    # Add this to the Settings class in config.py
+    # HubSpot Configuration
+    HUBSPOT_API_KEY: str = ""
+    HUBSPOT_LIST_ID: str = ""  # Optional, for adding users to a specific list
+
     # Security
     SECRET_KEY: str = "your-secret-key-here-change-in-production"
     ALGORITHM: str = "HS256"

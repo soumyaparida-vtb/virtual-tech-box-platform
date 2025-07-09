@@ -1,6 +1,6 @@
 # backend/app/api/v1/endpoints/health.py
 from fastapi import APIRouter
-from app.services.google_sheets import google_sheets_service
+from app.services.hubspot import hubspot_service
 
 router = APIRouter()
 
@@ -10,5 +10,5 @@ async def health_check():
     return {
         "status": "healthy",
         "service": "backend-api",
-        "google_sheets": "connected" if google_sheets_service.sheet else "disconnected"
+        "hubspot": "connected" if hubspot_service.client else "disconnected"
     }

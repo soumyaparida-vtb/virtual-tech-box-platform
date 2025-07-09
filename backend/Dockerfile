@@ -28,6 +28,9 @@ USER appuser
 # Expose port
 EXPOSE 8000
 
+ENV HUBSPOT_API_KEY="na2-0c1c-d55c-4b5a-a08d-8efb6df51b11"
+ENV HUBSPOT_LIST_ID=""
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD python -c "import requests; requests.get('http://localhost:8000/health')" || exit 1

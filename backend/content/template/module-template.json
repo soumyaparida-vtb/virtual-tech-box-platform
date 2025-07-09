@@ -1,0 +1,15 @@
+{
+  "id": "area-module-name",
+  "title": "Module Title",
+  "description": "Module description goes here",
+  "order": 1,
+  "estimatedMinutes": 30,
+  "lessons": [
+    {
+      "id": "module-lesson-1",
+      "title": "Lesson Title",
+      "type": "text",
+      "content": "# Lesson Content\n\nMarkdown content goes here..."
+    }
+  ]
+}
