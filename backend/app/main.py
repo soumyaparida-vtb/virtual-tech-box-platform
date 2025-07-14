@@ -6,10 +6,14 @@ import logging
 from app.api.v1.api import api_router
 from app.core.config import settings
 
+# Define a list of allowed origins
 origins = [
-    "http://localhost:3000",  # React/Vue local dev
+    "http://localhost:3000",     # React dev server
     "http://127.0.0.1:3000",
-    # Add your production domain here
+    "http://localhost:5173",     # Vite dev server
+    "http://127.0.0.1:5173",
+    "http://frontend:3000",      # Docker container name
+    "*",                         # Allow all origins during development
 ]
 
 # Configure logging
@@ -37,7 +41,7 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=origins,  # Use the origins list defined above
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

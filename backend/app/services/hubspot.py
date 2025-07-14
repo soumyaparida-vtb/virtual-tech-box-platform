@@ -59,6 +59,14 @@ class HubSpotService:
             logger.info(f"User {user.email} added to HubSpot")
             return True
             
+        except hubspot.crm.contacts.exceptions.ApiException as e:
+            # Check if the error is because the contact already exists (409 Conflict)
+            if hasattr(e, 'status') and e.status == 409:
+                logger.warning(f"Contact with email {user.email} already exists in HubSpot")
+                return True  # Consider this a success
+            else:
+                logger.error(f"HubSpot API error: {e}")
+                return self._store_locally(user)
         except Exception as e:
             logger.error(f"HubSpot API error: {e}")
             return self._store_locally(user)

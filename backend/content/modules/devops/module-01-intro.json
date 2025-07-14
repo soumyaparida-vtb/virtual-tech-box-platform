@@ -22,12 +22,12 @@
           "type": "article"
             }
           ]
+        },
+        {
+          "id": "devops-intro-2",
+          "title": "DevOps Culture",
+          "type": "text",
+          "content": "# DevOps Culture\n\nDevOps is not just about tools and processes; it's fundamentally about culture. A successful DevOps transformation requires a shift in mindset and organizational culture.\n\n## Core Cultural Values\n\n### 1. Collaboration Over Silos\n- Cross-functional teams\n- Shared responsibilities\n- Open communication channels\n\n### 2. Embrace Failure\n- Fail fast, learn faster\n- Blameless post-mortems\n- Continuous improvement\n\n### 3. Automation First\n- Automate repetitive tasks\n- Infrastructure as Code\n- Self-service capabilities\n\n### 4. Measurement and Metrics\n- Data-driven decisions\n- Key performance indicators (KPIs)\n- Continuous feedback loops\n\n## Building a DevOps Culture\n\n1. **Start Small**: Begin with pilot projects\n2. **Lead by Example**: Management support is crucial\n3. **Invest in Learning**: Continuous education and training\n4. **Celebrate Success**: Recognize and reward DevOps practices\n5. **Be Patient**: Cultural change takes time\n\n> \"DevOps is not a goal, but a never-ending process of continual improvement.\" - Jez Humble"
         }
       ]
-    },
-    {
-      "id": "devops-intro-2",
-      "title": "DevOps Culture",
-      "type": "text",
-      "content": "# DevOps Culture\n\nDevOps is not just about tools and processes; it's fundamentally about culture. A successful DevOps transformation requires a shift in mindset and organizational culture.\n\n## Core Cultural Values\n\n### 1. Collaboration Over Silos\n- Cross-functional teams\n- Shared responsibilities\n- Open communication channels\n\n### 2. Embrace Failure\n- Fail fast, learn faster\n- Blameless post-mortems\n- Continuous improvement\n\n### 3. Automation First\n- Automate repetitive tasks\n- Infrastructure as Code\n- Self-service capabilities\n\n### 4. Measurement and Metrics\n- Data-driven decisions\n- Key performance indicators (KPIs)\n- Continuous feedback loops\n\n## Building a DevOps Culture\n\n1. **Start Small**: Begin with pilot projects\n2. **Lead by Example**: Management support is crucial\n3. **Invest in Learning**: Continuous education and training\n4. **Celebrate Success**: Recognize and reward DevOps practices\n5. **Be Patient**: Cultural change takes time\n\n> \"DevOps is not a goal, but a never-ending process of continual improvement.\" - Jez Humble"
     }
