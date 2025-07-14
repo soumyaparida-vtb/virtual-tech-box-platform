@@ -95,7 +95,8 @@ class ApiService {
   // Progress endpoints
   async updateProgress(learningArea: string, moduleId: string): Promise<ApiResponse<void>> {
     try {
-      const response = await this.api.post<ApiResponse<void>>('/progress/update', {
+      // This should match our backend endpoint structure
+      const response = await this.api.post<ApiResponse<void>>('/learning/progress/update', {
         learningArea,
         moduleId,
       });
